@@ -1,0 +1,45 @@
+@startuml Fink Architecture
+!include <awslib/AWSCommon>
+!include <awslib/AWSSimplified.puml>
+!include <awslib/Compute/all.puml>
+!include <awslib/Database/all.puml>
+!include <awslib/mobile/all.puml>
+!include <awslib/general/all.puml>
+!include <awslib/GroupIcons/all.puml>
+
+User(Sender, "Sender", " ")
+Users(Receivers, "Receivers", " ")
+APIGateway(APIGateway, "Amazon API Gateway", "")
+Lambda(Connect, "Connect", " ")
+Lambda(Disconnect, "Disconnect", " ")
+Lambda(Register, "Register", " ")
+Lambda(NewReceiver, "New Receiver", " ")
+DynamoDB(Dynamo, "Dynamo", " ")
+
+title Fink Architecture
+
+Sender -> APIGateway : 1. New share
+APIGateway -> Connect : 2. New share
+Connect -> Dynamo : 3. New share
+Receivers -> APIGateway : 4. Register
+APIGateway -> Register : 5. Register
+Register -down-> Dynamo : 6. Register
+Dynamo -> NewReceiver : 7. New Receiver
+NewReceiver -> APIGateway : 8. New Receiver
+APIGateway -> Sender : 9. New Receiver
+Sender -down-> Receivers : 10. Send file
+APIGateway -> Disconnect : 11. Disconnect
+Disconnect -> Dynamo : 12. Disconnect
+@enduml
+
+@startuml AWS Sprites
+!include <awslib/AWSCommon>
+!include <awslib/AWSSimplified.puml>
+!include <awslib/Compute/all.puml>
+!include <awslib/Database/all.puml>
+!include <awslib/mobile/all.puml>
+!include <awslib/general/all.puml>
+!include <awslib/GroupIcons/all.puml>
+
+listsprites
+@enduml
