@@ -1,0 +1,21 @@
+service: fink
+provider:
+    name: aws
+    runtime: rust
+plugins:
+    - serverless-rust
+package:
+    individually: true
+functions:
+    echo: 
+        handler: backend
+        events:
+            - websocket:
+                route: $connect
+            - websocket:
+                route: $disconnect
+            - websocket:
+                route: $default
+                routeResponseSelectionExpression: $default
+        environment:
+            RUST_LOG: DEBUG
