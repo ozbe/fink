@@ -2,7 +2,7 @@
 
 ## Setup
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Deploy
