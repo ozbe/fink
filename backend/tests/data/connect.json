@@ -1,0 +1,64 @@
+{
+    "headers": {
+      "Host": "XXXXXX.execute-api.us-east-1.amazonaws.com",
+      "Sec-WebSocket-Key": "NhQcTP707ttxIx911H5jIg==",
+      "Sec-WebSocket-Version": "13",
+      "X-Amzn-Trace-Id": "Root=1-5f2ca538-2f790e00604cb40097b19c80",
+      "X-Forwarded-For": "162.83.150.122",
+      "X-Forwarded-Port": "443",
+      "X-Forwarded-Proto": "https"
+    },
+    "isBase64Encoded": false,
+    "multiValueHeaders": {
+      "Host": [
+        "XXXXXX.execute-api.us-east-1.amazonaws.com"
+      ],
+      "Sec-WebSocket-Key": [
+        "NhQcTP707ttxIx911H5jIg=="
+      ],
+      "Sec-WebSocket-Version": [
+        "13"
+      ],
+      "X-Amzn-Trace-Id": [
+        "Root=1-5f2ca538-2f790e00604cb40097b19c80"
+      ],
+      "X-Forwarded-For": [
+        "162.83.150.122"
+      ],
+      "X-Forwarded-Port": [
+        "443"
+      ],
+      "X-Forwarded-Proto": [
+        "https"
+      ]
+    },
+    "requestContext": {
+      "apiId": "XXXXXX",
+      "connectedAt": 1596761400355,
+      "connectionId": "Q37A0cTSIAMCLAQ=",
+      "domainName": "XXXXXX.execute-api.us-east-1.amazonaws.com",
+      "eventType": "CONNECT",
+      "extendedRequestId": "Q37A0EviIAMF2tQ=",
+      "identity": {
+        "accessKey": null,
+        "accountId": null,
+        "caller": null,
+        "cognitoAuthenticationProvider": null,
+        "cognitoAuthenticationType": null,
+        "cognitoIdentityId": null,
+        "cognitoIdentityPoolId": null,
+        "principalOrgId": null,
+        "sourceIp": "162.83.150.122",
+        "user": null,
+        "userAgent": null,
+        "userArn": null
+      },
+      "messageDirection": "IN",
+      "messageId": null,
+      "requestId": "Q37A0EviIAMF2tQ=",
+      "requestTime": "07/Aug/2020:00:50:00 +0000",
+      "requestTimeEpoch": 1596761400356,
+      "routeKey": "$connect",
+      "stage": "dev"
+    }
+  }
