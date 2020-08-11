@@ -29,6 +29,7 @@ class Say extends Component {
                     value={this.text} 
                     onChange={this.updateText} 
                     onKeyPress={this.handleKeyPress}
+                    data-testid="say-input"
                 />
                 <button onClick={this.newMessage}>Send</button>
             </div>
