@@ -3,6 +3,8 @@ provider:
     name: aws
     runtime: rust
 plugins:
+    - serverless-build-client
+    - serverless-finch
     - serverless-rust
 package:
     individually: true
@@ -19,3 +21,13 @@ functions:
                 routeResponseSelectionExpression: $default
         environment:
             RUST_LOG: DEBUG
+custom:
+    buildClient:
+        packager: yarn
+        command: workspace frontend run build
+        environment:
+            REACT_APP_WS_URL: ${cf:fink-dev.ServiceEndpointWebsocket}
+    client:
+        bucketName: ozbe-fink-dev
+        distributionFolder: frontend/build
+       

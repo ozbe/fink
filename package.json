@@ -1,6 +1,12 @@
 {
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
   "devDependencies": {
     "serverless": "^1.78.1",
+    "serverless-build-client": "^2.5.0",
+    "serverless-finch": "^2.6.0",
     "serverless-rust": "^0.3.8"
   }
 }
