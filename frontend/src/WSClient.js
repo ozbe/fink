@@ -1,5 +1,4 @@
 import { createContext } from 'react';
-import wsConfig from './ws.config';
 
 export const WebSocketContext = createContext();
 
@@ -8,7 +7,7 @@ class WSClient {
         const listeners = [];
         this.listeners = listeners;
 
-        this.ws = new WebSocket(wsConfig.url, wsConfig.protocols);
+        this.ws = new WebSocket(process.env.REACT_APP_WS_URL);
         this.ws.onmessage = function(e) {
             let data = JSON.parse(e.data);
             listeners.forEach(l => l(data))

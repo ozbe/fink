@@ -7,15 +7,14 @@ $ yarn install
 
 ## Deploy
 ```bash
-# deploy backend
 $ npx serverless deploy
-# TODO - deploy the frontend
+$ npx serverless client build
+$ npx serverless client deploy --no-confirm
 ```
 
 ## Run Frontend
 ```bash
-$ ENDPOINT=$(npx serverless info | awk '{ if ($1 ~ /wss/) { print $1 } }')
-$ sed -e "s|URL|$ENDPOINT|" ./frontend/src/ws.config.template.json > ./frontend/src/ws.config.json
+$ REACT_APP_WS_URL=$(npx serverless info | awk '{ if ($1 ~ /wss/) { print $1 } }')
 $ yarn workspace frontend run start
 ```
 
@@ -28,16 +27,18 @@ $ npx serverless remove
 
 ### Connect to backend
 ```bash
-$ ENDPOINT=$(npx serverless info | awk '{ if ($1 ~ /wss/) { print $1 } }')
-$ websocat $ENDPOINT
+$ REACT_APP_WS_URL=$(npx serverless info | awk '{ if ($1 ~ /wss/) { print $1 } }')
+$ websocat $REACT_APP_WS_URL
 ```
 
-### Connect frontend to and run mock backend
+### Connect local frontend to and run mock backend
 ```bash
 # Configure
-$ sed -e "s|URL|ws://127.0.0.1:8080|" ./frontend/src/ws.config.template.json > ./frontend/src/ws.config.json
+$ REACT_APP_WS_URL=ws://127.0.0.1:8080
 # Serve
 $ websocat -s 8080
+# Start local
+$ yarn workspace frontend run start
 ```
 
 ### Example new message action
