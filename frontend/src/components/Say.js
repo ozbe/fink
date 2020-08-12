@@ -24,7 +24,7 @@ class Say extends Component {
         return (
             <div>
                 <input
-                    ref={this.input}
+                    ref={this.textInput}
                     placeholder="Say" 
                     value={this.text} 
                     onChange={this.updateText} 
