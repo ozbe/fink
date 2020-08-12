@@ -1,10 +1,11 @@
 service: fink
 provider:
     name: aws
-    runtime: rust
+    runtime: ${opt:runtime, 'rust'}
 plugins:
     - serverless-build-client
     - serverless-finch
+    - serverless-offline
     - serverless-rust
 package:
     individually: true
@@ -26,8 +27,9 @@ custom:
         packager: yarn
         command: workspace frontend run build
         environment:
-            REACT_APP_WS_URL: ${cf:fink-dev.ServiceEndpointWebsocket}
+            REACT_APP_WS_URL: ${cf:fink-dev.ServiceEndpointWebsocket, ''}
     client:
         bucketName: ozbe-fink-dev
-        distributionFolder: frontend/build
-       
+        distributionFolder: frontend/build  
+    serverless-offline:
+        useDocker: true
