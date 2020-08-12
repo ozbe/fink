@@ -8,6 +8,6 @@
     "serverless-build-client": "^2.5.0",
     "serverless-finch": "^2.6.0",
     "serverless-offline": "^6.5.0",
-    "serverless-rust": "^0.3.8"
+    "serverless-rust": "git://github.com/softprops/serverless-rust"
   }
 }

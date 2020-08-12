@@ -1,12 +1,12 @@
 service: fink
 provider:
     name: aws
-    runtime: ${opt:runtime, 'rust'}
+    runtime: rust
 plugins:
     - serverless-build-client
     - serverless-finch
-    - serverless-offline
     - serverless-rust
+    - serverless-offline # serverless-offline needs to be after serverless-rust
 package:
     individually: true
 functions:
